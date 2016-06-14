@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage
+		xmlns="http://xamarin.com/schemas/2014/forms" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+		xmlns:cv="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView"
+		xmlns:local="clr-namespace:SampleXamarinCarouselView"
+		x:Class="SampleXamarinCarouselView.SampleXamarinCarouselViewPage">
+
+	<ContentPage.Content>
+	<RelativeLayout>
+		<RelativeLayout
+	   		RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0}"
+	        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0}"
+	        RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+	        RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.08}" >
+
+	        <BoxView
+				Color="Gray"
+				RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+				RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}" 
+		    	/>
+				
+	        <BoxView
+		    	x:Name="boxMenu"
+		        Color="White"
+	        	RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0}"
+	        	RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+		        RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.99}" 
+		    	/>
+				
+			<Label
+				x:Name="lbl1"
+		        Text="test1"
+				XAlign="Center"
+				YAlign="Center"
+				HorizontalOptions="FillAndExpand"
+				VerticalOptions="FillAndExpand"
+		   		RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0}"
+		        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0}"
+		        RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5}"
+		        RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.99}" 
+		    	/>
+
+			<Label
+				x:Name="lbl2"
+		        Text="test2"
+				XAlign="Center"
+				YAlign="Center"
+				HorizontalOptions="FillAndExpand"
+				VerticalOptions="FillAndExpand"
+		   		RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5}"
+		        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0}"
+		        RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5}"
+		        RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.99}" 
+		    	/>
+		</RelativeLayout>
+
+		<cv:CarouselView 
+				x:Name="CarouselList"
+				RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0}"
+		        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.08}"
+		        RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+		        RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.92}"
+				PositionSelected="CarouselPositionSelected"
+				ItemsSource="{Binding}">
+				
+			<cv:CarouselView.ItemTemplate>
+				<DataTemplate>
+					<ListView BackgroundColor="White"
+							  ItemsSource="{Binding ListData}"
+							  >
+						<ListView.ItemTemplate>
+							<DataTemplate>
+						      <ViewCell>
+						      	<StackLayout Orientation="Horizontal">
+							    	<Label Text="{Binding Title}" />
+						        </StackLayout>
+						      </ViewCell>
+						    </DataTemplate>
+					    </ListView.ItemTemplate>
+					</ListView>
+				</DataTemplate>
+			</cv:CarouselView.ItemTemplate>
+		</cv:CarouselView>
+		</RelativeLayout>
+	</ContentPage.Content>
+</ContentPage>
